@@ -1,0 +1,11 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/DefaultIdentityApp/.vs/
+/DefaultIdentityApp/bin/
+/DefaultIdentityApp/obj/
+/DefaultIdentityApp/App_Data/
+# SQL Server files
+*.mdf
+*.ldf
