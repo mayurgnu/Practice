@@ -1,0 +1,173 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+<link href="s1.css" rel="stylesheet" />
+
+@*  *@
+<div class="jumbotron">
+    <h1>ASP.NET</h1>
+    <h6>
+        <a href="https://www.youtube.com/watch?v=9ggoO2o1WJA&list=PL0b6OzIxLPbwX4_pV5V2E8q0_RAZqOOMv">Sass playlist url</a>
+        <span>
+            In this commit SCSS done till Sass Extend Tutorial in Hindi / Urdu
+        </span>
+    </h6>
+    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+    <p><a href="https://asp.net">Hover on this link to check scss css efect is working or not</a></p>
+    <div class="col-lg-12">
+        <content>Select this content to check scss css effect is working or not.</content>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <h3>Sass Partials & Imports : Starts</h3>
+        <p>In this example we created three files 1)._div1.scss, 2)._div2.scss, 3)._div3.scss</p>
+        <p>Partial scss file Naming : must be start with unserscore(_).</p>
+        <p>Partial scss file are imported in any main css so it need not to have seprate css file for them own.</p>
+        <p>Partial scss are compile into main scss file in which they are imported.</p>
+        <content>
+
+            Partials should be imported in main file as following.
+            <p>
+                (at the rate)import "div1";
+                <br />
+                (at the rate)import "div2";
+                <br />
+                (at the rate)import "div3";
+            </p>
+        </content>
+    </div>
+    <div class="col-md-12">
+        <div class="col-md-4 div1">
+            <content>
+                .div1 {
+                background-color: yellow;
+                color: green;
+                border: 3px dotted red; }
+            </content>
+        </div>
+        <div class="col-md-4 div2">
+            <content>
+                .div2 {
+                background-color: red;
+                color: yellow;
+                border: 3px double green; }
+            </content>
+        </div>
+        <div class="col-md-4 div3">
+            <content>
+                .div3 {
+                background-color: green;
+                color: red;
+                border: 3px dashed yellow; }
+            </content>
+        </div>
+        <h3>Sass Partials & Imports : End</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <h3>Sass Mixins : Starts</h3>
+    </div>
+    <div id="first" class="col-md-6">
+        <h3>first div</h3>
+    </div>
+    <div id="second" class="col-md-6">
+        <h3>second div</h3>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    Normal Extend
+                </th>
+                <th>
+                    Placeholder Extend
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <div class="col-md-4 extmain">
+                        <content>
+                            .extmain
+                            {
+                            color:red;
+                            font-size:15px;
+                            text-transform: uppercase;
+                            }
+                        </content>
+                    </div>
+                    <div class="col-md-4 extchild1">
+                        <content>
+                            .extchild1 {
+                            color: green;
+                            (at the rate)extend .extmain;
+                            }
+                        </content>
+                    </div>
+                    <div class="col-md-4 extchild2">
+                        <content>
+                            .extchild2 {
+                            color: blue;
+                            (at the rate)extend .extmain;
+                            }
+                        </content>
+                    </div>
+                </td>
+                <td>
+                    <div class="col-md-4 extmainplaceholder">
+                        <div>
+                            %extmainplaceholder {
+                            color: red;
+                            font-size: 15px;
+                            text-transform: lowercase;
+                            }
+                        </div>
+                    </div>
+                    <div class="col-md-4 extplaceholderchild1">
+                        <div>
+                            .extplaceholderchild1 {
+                            color: blue;
+                            (at the rate)extend %extmainplaceholder;
+                            }
+                        </div>
+                    </div>
+                    <div class="col-md-4 extplaceholderchild2">
+                        <div>
+                            .extplaceholderchild2 {
+                            color: green;
+                            (at the rate)extend %extmainplaceholder;
+                            }
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="row">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    Sass Operators [Equality(=,!=,True/False), Relational(<,>,<=,=>), Numeric, String, Boolean]
+                </th>
+                <th>
+                    Placeholder Extend
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

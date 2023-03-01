@@ -1,0 +1,106 @@
+/*https: //www.youtube.com/playlist?list=PL0b6OzIxLPbwX4_pV5V2E8q0_RAZqOOMv*/
+/*Sass Introduction Tutorial in Hindi / Urdu*/
+.div1 {
+  background-color: yellow;
+  color: green;
+  border: 3px dotted red; }
+
+.div2 {
+  background-color: red;
+  color: yellow;
+  border: 3px double green; }
+
+.div3 {
+  background-color: green;
+  color: red;
+  border: 3px dashed yellow; }
+
+div ul {
+  margin: 10px;
+  padding: 5px;
+  list-style: none; }
+div li {
+  display: block; }
+div a {
+  padding: 6px 12px;
+  text-decoration: none; }
+  div a:hover {
+    color: blueviolet; }
+div content::selection {
+  background-color: aquamarine;
+  color: blue; }
+
+/*Sass Variables Tutorial in Hindi / Urdu*/
+p {
+  background-color: pink;
+  border: 1px solid green;
+  color: red; }
+
+h1 {
+  background-color: pink;
+  border: 1px solid green;
+  color: red; }
+
+span {
+  background-color: pink;
+  border: 1px solid green;
+  color: red; }
+
+/*Sass Nesting Tutorial in Hindi / Urdu*/
+/*alredy done above */
+/*Sass Partials & Imports Tutorial in Hindi / Urdu*/
+/*Sass Mixins Tutorial in Hindi / Urdu*/
+/*.abc {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.xyz {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}*/
+/*@mixin bd-radius($val: 5px) means no val passed than default will be 5px*/
+#first {
+  border: 1px solid red;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  -webkit-border-shadow: 3px 3px 0 black;
+  -moz-border-shadow: 3px 3px 0 black;
+  border-shadow: 3px 3px 0 black; }
+
+#second {
+  border: 1px solid red;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-border-shadow: -3px -3px 3px black;
+  -moz-border-shadow: -3px -3px 3px black;
+  border-shadow: -3px -3px 3px black; }
+
+/*Sass Extend Tutorial*/
+.extmain, .extchild1, .extchild2 {
+  color: red;
+  font-size: 15px;
+  text-transform: uppercase; }
+
+.extchild1 {
+  color: green; }
+
+.extchild2 {
+  color: blue; }
+
+.extplaceholderchild1, .extplaceholderchild2 {
+  color: red;
+  font-size: 15px;
+  text-transform: lowercase; }
+
+.extplaceholderchild1 {
+  color: blue; }
+
+.extplaceholderchild2 {
+  color: green; }
+
+/*# sourceMappingURL=s1.css.map */

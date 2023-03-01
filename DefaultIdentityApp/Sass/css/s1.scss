@@ -1,0 +1,122 @@
+﻿/*https: //www.youtube.com/playlist?list=PL0b6OzIxLPbwX4_pV5V2E8q0_RAZqOOMv*/
+/*Sass Introduction Tutorial in Hindi / Urdu*/
+@import "div1";
+@import "div2";
+@import "div3";
+
+$ahvrclr: blueviolet;
+$cntntbgclr: aquamarine;
+$cntntclr:blue;
+div {
+    ul {
+        margin: 10px;
+        padding: 5px;
+        list-style: none;
+    }
+
+    li {
+        display: block;
+    }
+
+    a {
+        padding: 6px 12px;
+        text-decoration: none;
+        //& inidcates hover on anchor
+        &:hover {
+            color: $ahvrclr;
+        }
+    }
+    content {
+        &::selection {
+            background-color: $cntntbgclr;
+            color: $cntntclr;
+        }
+    }
+}
+
+/*Sass Variables Tutorial in Hindi / Urdu*/
+$redclr:pink;
+$border-clr: green;
+$txtClr: red;
+p {
+    background-color: $redclr;
+    border: 1px solid $border-clr;
+    color:$txtClr;
+}
+h1 {
+    background-color: $redclr;
+    border: 1px solid $border-clr;
+    color: $txtClr;
+}
+span {
+    background-color: $redclr;
+    border: 1px solid $border-clr;
+    color: $txtClr;
+}
+/*Sass Nesting Tutorial in Hindi / Urdu*/
+/*alredy done above */
+/*Sass Partials & Imports Tutorial in Hindi / Urdu*/
+/*Sass Mixins Tutorial in Hindi / Urdu*/
+/*.abc {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.xyz {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}*/
+/*@mixin bd-radius($val: 5px) means no val passed than default will be 5px*/
+
+@mixin bd-radius($val: 5px) {
+    border:1px solid red;
+    -webkit-border-radius: $val;
+    -moz-border-radius: $val;
+    border-radius: $val;
+}
+@mixin box-shadow($top, $left, $blur, $color) {
+    -webkit-border-shadow: $top $left $blur $color;
+    -moz-border-shadow: $top $left $blur $color;
+    border-shadow: $top $left $blur $color;
+}
+#first {
+    @include bd-radius(25px);
+    @include box-shadow(3px, 3px, 0, black);
+}
+#second {
+    @include bd-radius(10px);
+    @include box-shadow(-3px, -3px, 3px, black);
+}
+
+/*Sass Extend Tutorial*/
+.extmain
+{
+    color:red;
+    font-size:15px;
+    text-transform: uppercase;
+}
+.extchild1 {
+    color: green;
+    @extend .extmain;
+}
+.extchild2 {
+    color: blue;
+    @extend .extmain;
+}
+%extmainplaceholder {
+    color: red;
+    font-size: 15px;
+    text-transform: lowercase;
+}
+
+.extplaceholderchild1 {
+    color: blue;
+    @extend %extmainplaceholder;
+}
+
+.extplaceholderchild2 {
+    color: green;
+    @extend %extmainplaceholder;
+}

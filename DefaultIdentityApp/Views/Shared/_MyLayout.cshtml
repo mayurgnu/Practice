@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Sidebar menu with sub-menu | using HTML, CSS &Aacute; Jquery</title>
+    @*//search cdn font awesome library*@
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Sass/css/s1.css" rel="stylesheet" />
+    <link href="~/Content/_MyLayoutStyle.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="menu-btn">
+        <i class="fas fa-bars"></i>
+    </div>
+    <div class="side-bar">
+        <div class="close-btn">
+            <i class="fas fa-times"></i>
+        </div>
+        <div class="menu">
+            <div class="item">
+                @Html.ActionLink("Dashboard", "Index", "Home")
+            </div>
+            <div class="item">
+                <a class="sub-btn" href="javascript:void(0)">
+                    <i class="fas fa-desktop"></i>
+                    Main
+                    <i class="fas fa-angle-right dropdown"></i>
+                </a>
+                <div class="sub-menu">
+                    <a class="sub-item" href="@Url.Action("Scss", "Home")"><i class="fas fa-th"></i>Scss</a>
+                    <a class="sub-item" href="@Url.Action("Index", "Home")"><i class="fas fa-cogs"></i>Home</a>
+                    <a class="sub-item" href="@Url.Action("About", "Home")"><i class="fas fa-circle"></i>About</a>
+                    <a class="sub-item" href="@Url.Action("Contact", "Home")"><i class="fas fa-circle"></i>Contact</a>
+                    <a class="sub-item" href="@Url.Action("Login", "GoogleAuthenticator")"><i class="fas fa-circle"></i>Google Authenticator</a>
+
+                </div>
+            </div>
+            <div class="item">
+                <a class="sub-btn" href="javascript:void(0)">
+                    <i class="fas fa-desktop"></i>
+                    Table
+                    <i class="fas fa-angle-right dropdown"></i>
+                </a>
+                <div class="sub-menu">
+                    <a class="sub-item" href="javascript:void(0)"><i class="fas fa-th"></i>Sub Item 101</a>
+                    <a class="sub-item" href="javascript:void(0)"><i class="fas fa-cogs"></i>Sub Item 102</a>
+                    <a class="sub-item" href="javascript:void(0)"><i class="fas fa-circle"></i>Sub Item 103</a>
+                </div>
+            </div>
+            <div class="item"><a href="javascript:void(0)"><i class="fas fa-desktop"></i>Forms</a></div>
+            <div class="item">
+                <a class="sub-btn" href="javascript:void(0)">
+                    <i class="fas fa-desktop"></i>Settings
+                    <i class="fas fa-angle-right dropdown"></i>
+                </a>
+                <div class="sub-menu">
+                    <a class="sub-item" href="javascript:void(0)"><i class="fas fa-th"></i>Settings 101</a>
+                    <a class="sub-item" href="javascript:void(0)"><i class="fas fa-cogs"></i>Settings 102</a>
+                    <a class="sub-item" href="javascript:void(0)"><i class="fas fa-circle"></i>Settings 103</a>
+                </div>
+            </div>
+            <div class="item"><a href="javascript:void(0)"><i class="fas fa-desktop"></i>About </a></div>
+            <div class="item"><a href="https://www.youtube.com/watch?v=o9iM28t3k3Q"><i class="fas fa-desktop"></i>Watch Side menu</a></div>
+
+        </div>
+    </div>
+    <div class="container body-content main">
+        <a href="https://www.youtube.com/watch?v=o9iM28t3k3Q" target="_blank" >Layout video url</a>
+        @* Render Body Content....*@
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script>
+        $(document).ready(function () {
+            //toggle submenus
+            $('.sub-btn').click(function () {
+                $(this).next('.sub-menu').slideToggle();
+                $(this).find('.dropdown').toggleClass('rotate');
+            });
+            //expand-collapse side bar
+            $('.menu-btn').click(function () {
+                $('.side-bar').addClass('active');
+                $('.menu-btn').css('visibility', 'hidden');
+            });
+            //expand-collapse side bar
+            $('.close-btn').click(function () {
+                $('.side-bar').removeClass('active');
+                $('.menu-btn').css('visibility', 'visible');
+            });
+        });
+    </script>
+
+</body>
+</html>

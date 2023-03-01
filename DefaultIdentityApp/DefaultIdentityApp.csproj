@@ -193,17 +193,30 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CommitDetails.txt" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\Galaxy_1240x480.jpg" />
+    <Content Include="Content\Images\laptop.jpg" />
+    <Content Include="Content\Images\pexels-otavio-fonseca-4665064.jpg" />
+    <Content Include="Content\Images\pexels-pixabay-531880.jpg" />
+    <Content Include="Content\Images\wooden.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Sass\css\s1.css" />
+    <Content Include="Sass\css\TestScss.html" />
+    <Content Include="Sass\Saas_Readme.txt" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Helpers\client_secret_809445783969-f2kaknq65qtqees1h86ndpbuo75i0eep.apps.googleusercontent.com.json" />
+    <None Include="Sass\css\s1.scss" />
+    <Content Include="Sass\css\_div1.scss" />
+    <Content Include="Sass\css\_div3.scss" />
+    <Content Include="Sass\css\_div2.scss" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -215,6 +228,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Content\Images\pexels-bich-tran-669996.jpg" />
+    <Content Include="Content\_MyLayoutStyle.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -225,7 +240,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_LayoutOriginal.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -251,6 +266,9 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\GoogleAuthenticator\Login.cshtml" />
     <Content Include="Views\GoogleAuthenticator\Index.cshtml" />
+    <Content Include="Views\Home\Scss.cshtml" />
+    <Content Include="Views\Shared\_MyLayout.cshtml" />
+    <Content Include="Views\Home\MyLayoutChild1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

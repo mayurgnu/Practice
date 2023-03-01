@@ -1,0 +1,10 @@
+﻿$d1bgclr:red;
+$d1txtclr: yellow;
+$d1borderclr: green;
+.div2 {
+    background-color: $d1bgclr;
+    color: $d1txtclr;
+    border: 3px double $d1borderclr;
+}
+
+
