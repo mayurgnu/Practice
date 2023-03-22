@@ -23,3 +23,11 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
     Which build the web host that hosts Our web application.
 4).On that web host we are calling Run() method which runs our application 
     and start listening incoming http requests.
+====================================================================================
+private IConfiguration _config;
+public Startup(IConfiguration config)
+{
+    _config = config;
+}
+see more on : https://www.youtube.com/watch?v=m_BevGi7zBw&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=9
+====================================================================================
