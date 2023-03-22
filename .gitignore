@@ -9,3 +9,8 @@
 # SQL Server files
 *.mdf
 *.ldf
+
+/EmployeeManagement/.vs/
+/EmployeeManagement/bin/
+/EmployeeManagement/obj/
+/EmployeeManagement/App_Data/
