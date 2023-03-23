@@ -32,6 +32,35 @@ namespace EmployeeManagement
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            //Enables default file mapping on the current path
+            //UseDefaultFiles middleware must come before UseStaticFiles() middleware 
+            //Note* : Default files must be name with default.html or index.html
+            //UseDefaultFiles only serves only wwwroot folder files.
+            //app.UseDefaultFiles();
+
+            //By default UseDefaultFiles finds and map http request to default.html or index.html
+            //we can chanege file name as per our requirement as following.
+            //DefaultFilesOptions defaultFilesOptions = new DefaultFilesOptions();
+            //defaultFilesOptions.DefaultFileNames.Clear();
+            //defaultFilesOptions.DefaultFileNames.Add("foo.html");
+            //app.UseDefaultFiles(defaultFilesOptions);
+
+            //Enables static file serving for the current request path
+            app.UseStaticFiles();
+
+            
+            //UseFileServer middleware comments the functionality of UseDefaultFiles,UseStaticFiles
+            //and UseDirectoryBrowser middlewares. 
+            //Lets replace UseDefaultFiles and UseStaticFiles middlewares with UseFileServer
+            //By default UseFileServer finds and map http request to default.html or index.html
+            //we can chanege file name as per our requirement as following.
+            FileServerOptions fileServerOptions = new FileServerOptions();
+            fileServerOptions.DefaultFilesOptions.DefaultFileNames.Clear();
+            fileServerOptions.DefaultFilesOptions.DefaultFileNames.Add("fileServerOptions.html");
+            app.UseFileServer(fileServerOptions);
+
+            
             //public static void Run(this IApplicationBuilder app, RequestDelegate handler);
             //Parameters:
             //app:The Microsoft.AspNetCore.Builder.IApplicationBuilder instance.
