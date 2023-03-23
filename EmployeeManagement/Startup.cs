@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +26,7 @@ namespace EmployeeManagement
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env,ILogger<Startup> logger)
         {
             if (env.IsDevelopment())
             {
@@ -36,10 +37,10 @@ namespace EmployeeManagement
             //app:The Microsoft.AspNetCore.Builder.IApplicationBuilder instance.
             //handler:A delegate that handles the request.
             //Adds a terminal middleware delegate to the application's request pipeline.
-            app.Run(async (context) =>
-            {
-                await context.Response.WriteAsync(_config["MyKey"]);
-            });
+            //app.Run(async (context) =>
+            //{
+            //    await context.Response.WriteAsync(_config["MyKey"]);
+            //});
 
             //public static IApplicationBuilder Use(this IApplicationBuilder app, Func<HttpContext, Func<Task>, Task> middleware);
             //Parameters:
@@ -49,14 +50,25 @@ namespace EmployeeManagement
             //Adds a middleware delegate defined in-line to the application's request pipeline.
             app.Use(async (context, next) =>
             {
-                await context.Response.WriteAsync("I am 1st Middleware in Request Procesing Pipeline.\n");
+                //await context.Response.WriteAsync("I am 1st Middleware in Request Procesing Pipeline.\n");
+
+                logger.LogInformation("MW1 : Incoming Request\n");
                 await next();
+                logger.LogInformation("MW1 : Outgoing Reesponse\n");
             });
             app.Use(async (context, next) =>
             {
-                await context.Response.WriteAsync("I am 2nd Middleware in Request Procesing Pipeline.\n");
+                //await context.Response.WriteAsync("I am 2nd Middleware in Request Procesing Pipeline.\n");
+                logger.LogInformation("MW2 : Incoming Request\n");
+                await next();
+                logger.LogInformation("MW2 : Outgoing Reesponse\n");
             });
 
+            app.Run(async (context) =>
+            {
+                await context.Response.WriteAsync("MW3 (Terminal middleware) : Request Handeled And Response Produced.\n");
+                logger.LogInformation("MW3 (Terminal middleware) : Request Handeled And Response Produced.\n");
+            });
 
             //app.UseRouting();
 
