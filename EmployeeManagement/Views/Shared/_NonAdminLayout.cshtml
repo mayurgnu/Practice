@@ -1,0 +1,33 @@
+﻿<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title | Non Admin Layout</title>
+</head>
+<body>
+    <div>
+        @RenderBody()
+    </div>
+    @*
+    RenderSection() method has 2 parameters. The first parameter specifies
+    the name of the section. The second parameter specifies if the section is required or optional.
+    If required is set to true and if a content view does not include the section, we get the following error.
+
+    Every view that intends to provide content for the section, must include a section with the same name.
+    We use @section directive to include the section and provide the content as shown below.
+
+    InvalidOperationException 1 : The layout page
+    '/Views/Shared/_Layout.cshtml' cannot find the section 'Scripts' in the content page '/Views/Home/Index.cshtml'.
+
+    InvalidOperationException 2
+    The following sections have been defined but have not been rendered by the page
+    at '/Views/Shared/_Layout.cshtml': 'ScriptsMayur'. To ignore an unrendered section call IgnoreSection("sectionName").
+    *@
+    @RenderSection("ScriptsMayur", required: false)
+
+    @*IsSectionDefined() Returns a value that indicates whether the specified section is defined in the content page.*@
+    @if (IsSectionDefined("Scripts123"))
+    {
+        @RenderSection("Scripts123", required: true)
+    }
+</body>
+</html>
