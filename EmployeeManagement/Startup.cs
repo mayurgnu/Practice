@@ -31,10 +31,33 @@ namespace EmployeeManagement
             {
                 app.UseDeveloperExceptionPage();
             }
+            //public static void Run(this IApplicationBuilder app, RequestDelegate handler);
+            //Parameters:
+            //app:The Microsoft.AspNetCore.Builder.IApplicationBuilder instance.
+            //handler:A delegate that handles the request.
+            //Adds a terminal middleware delegate to the application's request pipeline.
             app.Run(async (context) =>
             {
                 await context.Response.WriteAsync(_config["MyKey"]);
             });
+
+            //public static IApplicationBuilder Use(this IApplicationBuilder app, Func<HttpContext, Func<Task>, Task> middleware);
+            //Parameters:
+            //app:The Microsoft.AspNetCore.Builder.IApplicationBuilder instance.
+            //middleware:A function that handles the request or calls the given next function.
+            // Returns: The Microsoft.AspNetCore.Builder.IApplicationBuilder instance.
+            //Adds a middleware delegate defined in-line to the application's request pipeline.
+            app.Use(async (context, next) =>
+            {
+                await context.Response.WriteAsync("I am 1st Middleware in Request Procesing Pipeline.\n");
+                await next();
+            });
+            app.Use(async (context, next) =>
+            {
+                await context.Response.WriteAsync("I am 2nd Middleware in Request Procesing Pipeline.\n");
+            });
+
+
             //app.UseRouting();
 
             //app.UseEndpoints(endpoints =>
