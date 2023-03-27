@@ -11,7 +11,7 @@ namespace EmployeeManagement.Controllers
         // Inject IEmployeeRepository using Constructor Injection
         public HomeController(IEmployeeRepository employeeRepository)
         {
-            _employeeRepository = new MockEmployeeRepository();
+            _employeeRepository = employeeRepository;
         }
 
         // Retrieve employee name and return
@@ -55,5 +55,22 @@ namespace EmployeeManagement.Controllers
 
             return View(homeDetailsViewModel);
         }
+        [HttpGet]
+        public ViewResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Employee employee)
+        {
+            if (ModelState.IsValid)
+            {
+                Employee newEmployee = _employeeRepository.Add(employee);
+            }
+
+            return View();
+        }
+
     }
 }

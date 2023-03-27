@@ -6,7 +6,7 @@ namespace EmployeeManagement.Models
     {
         IEnumerable<Employee> GetAllEmployees();
         Employee GetEmployee(int id);
-        //void Save(Employee employee);
+        Employee Add(Employee employee);
     }
 
     //public class EmployeeRepository : IEmployeeRepository

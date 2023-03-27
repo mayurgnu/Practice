@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -27,6 +28,7 @@ namespace EmployeeManagement
         {
             //Two steps to setup MVC in ASP.NET Core Application
             services.AddMvc();
+
             services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
 
             //To be able to return data in XML format, we have to add Xml Serializer Formatter by calling AddXmlSerializerFormatters() method in ConfigureServices() method in Startup.cs file.
@@ -52,7 +54,9 @@ namespace EmployeeManagement
                 //});
                 endpoints.MapControllerRoute(
                name: "default",
-               pattern: "{controller=Home}/{action=details}/{id?}");
+                //pattern: "{controller=Home}/{action=details}/{id?}");
+                pattern: "{controller=Home}/{action=details}/{id?}");
+
             });
         }
     }
