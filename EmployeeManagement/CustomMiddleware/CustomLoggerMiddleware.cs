@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 
 namespace EmployeeManagement.CustomMiddleware
 {
-    //https://www.youtube.com/watch?v=5eifH7LEnGo&list=PL59L9XrzUa-nqfCHIKazYMFRKapPNI4sP
     public class CustomLoggerMiddleware : IMiddleware
     {
         //Constrructor can be used for following purposes.
@@ -21,8 +20,8 @@ namespace EmployeeManagement.CustomMiddleware
         //Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger' while attempting to activate
         //'EmployeeManagement.CustomMiddleware.CustomLoggerMiddleware'
 
-        private readonly ILogger _logger;
-        public CustomLoggerMiddleware(ILogger logger)
+        private readonly ILogger<Startup> _logger;
+        public CustomLoggerMiddleware(ILogger<Startup> logger)
         {
             _logger = logger;
         }
