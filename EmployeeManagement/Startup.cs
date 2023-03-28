@@ -1,3 +1,4 @@
+using EmployeeManagement.CustomMiddleware;
 using EmployeeManagement.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -34,6 +35,7 @@ namespace EmployeeManagement
             //To be able to return data in XML format, we have to add Xml Serializer Formatter by calling AddXmlSerializerFormatters() method in ConfigureServices() method in Startup.cs file.
             //services.AddMvc().AddXmlSerializerFormatters();
 
+            services.AddTransient<CustomLoggerMiddleware>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,21 +45,22 @@ namespace EmployeeManagement
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseMiddleware<CustomLoggerMiddleware>();
 
-            app.UseRouting();
+            //app.UseRouting();
 
-            app.UseEndpoints(endpoints =>
-            {
-                //endpoints.MapGet("/", async context =>
-                //{
-                //    await context.Response.WriteAsync("Hello World!");
-                //});
-                endpoints.MapControllerRoute(
-               name: "default",
-                //pattern: "{controller=Home}/{action=details}/{id?}");
-                pattern: "{controller=Home}/{action=details}/{id?}");
+            //app.UseEndpoints(endpoints =>
+            //{
+            //    //endpoints.MapGet("/", async context =>
+            //    //{
+            //    //    await context.Response.WriteAsync("Hello World!");
+            //    //});
+            //    endpoints.MapControllerRoute(
+            //   name: "default",
+            //    //pattern: "{controller=Home}/{action=details}/{id?}");
+            //    pattern: "{controller=Home}/{action=details}/{id?}");
 
-            });
+            //});
         }
     }
 }
